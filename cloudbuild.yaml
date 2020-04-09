@@ -14,7 +14,7 @@ steps:
 
 - id: "Rodando o binario gerado"
   name: 'gcr.io/cloud-builders/docker'
-  args: ['exec', '-t', 'app', 'go/src/app/soma']  
+  args: ['exec', '-t', 'app', '/go/src/app/soma']  
 
 - id: "Rodando o test criad para a soma"
   name: 'gcr.io/cloud-builders/docker'
