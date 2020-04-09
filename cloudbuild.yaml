@@ -1,21 +1,33 @@
 steps:
 
-    - id: "Rodando docker-compose"
-      name: 'gcr.io/$PROJECT_ID/docker-compose'
-      args: ['-f', 'docker-compose.cloudbuild.yaml', 'up', '-d']  
-    
-    - id: "Rodando docker ps"
-      name: 'gcr.io/cloud-builders/docker'
-      args: ['ps']  
-    
-    - id: "Rodando o soma"
-      name: 'gcr.io/cloud-builders/docker'
-      args: ['exec', '-t', 'app', 'go', 'run', 'soma.go']  
-    
-      - id: "Rodando o soma build"
-      name: 'gcr.io/cloud-builders/docker'
-      args: ['exec', '-t', 'app', './soma']  
-    
-      - id: "Rodando o test criad para a soma"
-      name: 'gcr.io/cloud-builders/docker'
-      args: ['exec', '-t', 'app', 'go', 'test']  
+- id: "Rodando docker-compose"
+  name: 'gcr.io/$PROJECT_ID/docker-compose'
+  args: ['-f', 'docker-compose.cloudbuild.yaml', 'up', '-d']  
+
+- id: "Rodando docker ps"
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['ps']  
+
+- id: "Rodando o soma"
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['exec', '-t', 'app', 'go', 'run', 'soma.go']  
+
+- id: "Rodando o soma build"
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['exec', '-t', 'app', './soma']  
+
+- id: "Rodando o test criad para a soma"
+  name: 'gcr.io/cloud-builders/docker'
+  args: ['exec', '-t', 'app', 'go', 'test']
+
+- id: "Gerar build da imagem"
+  name: 'gcr.io/cloud-builders/docker'
+  args:
+  - 'build'
+  - '-t'
+  - 'gcr.io/$PROJECT_ID/desafio-ci:latest'
+  - '-t'
+  - 'gcr.io/$PROJECT_ID/desafio-ci:0.0.1'
+  - '.'
+- images:
+  - 'gcr.io/$PROJECT_ID/desafio-ci:latest'
