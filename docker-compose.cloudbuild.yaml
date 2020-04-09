@@ -7,3 +7,4 @@ services:
         container_name: app
         volumes: 
             - .:/go/src/app
+        stdin_open: true
