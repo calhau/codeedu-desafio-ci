@@ -22,6 +22,7 @@ Consegui realizar o procedimento mas não utilizei as "dicas" abaixo:
 ###### Veja na imagem a baixo, os testes sendo realizado
 
 ![desafioCI](https://cutt.ly/4tL3YkX)
+![pullrequest](https://cutt.ly/MtZfUFn)
 
 Não sei se fiz corretamente, mas gostaria de um feedback.
 
