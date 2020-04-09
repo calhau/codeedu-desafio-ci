@@ -29,3 +29,6 @@ steps:
   - '-t'
   - 'gcr.io/$PROJECT_ID/desafio-ci:0.0.1'
   - '.'
+
+images:
+- 'gcr.io/$PROJECT_ID/desafio-ci:0.0.1'
